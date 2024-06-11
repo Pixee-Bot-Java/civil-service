@@ -23,6 +23,6 @@ public class EventSubmissionParams {
     private Map<String, Object> updates;
 
     public boolean isDraftClaim() {
-        return caseId.equals(DRAFT_CLAIM_ID);
+        return DRAFT_CLAIM_ID.equals(caseId);
     }
 }

@@ -157,25 +157,25 @@ public class UpdateFromGACaseEventTaskHandler implements BaseExternalTaskHandler
 
     protected void updateDocCollectionField(Map<String, Object> output, CaseData civilCaseData, CaseData generalAppCaseData, String docFieldName) throws Exception {
         String civilDocPrefix = docFieldName;
-        if (civilDocPrefix.equals("generalAppEvidence")) {
+        if ("generalAppEvidence".equals(civilDocPrefix)) {
             civilDocPrefix = "gaEvidence";
         }
 
-        if (civilDocPrefix.equals("requestForInformation")) {
+        if ("requestForInformation".equals(civilDocPrefix)) {
             civilDocPrefix = "requestForInfo";
         }
 
-        if (civilDocPrefix.equals("writtenRepSequential")) {
+        if ("writtenRepSequential".equals(civilDocPrefix)) {
             civilDocPrefix = "writtenRepSeq";
         }
 
-        if (civilDocPrefix.equals("writtenRepConcurrent")) {
+        if ("writtenRepConcurrent".equals(civilDocPrefix)) {
             civilDocPrefix = "writtenRepCon";
         }
 
         //staff collection will hold ga doc accessible for judge and staff
         String fromGaList = docFieldName + gaDocSuffix;
-        if (civilDocPrefix.equals("gaAddl")) {
+        if ("gaAddl".equals(civilDocPrefix)) {
             fromGaList = docFieldName + gaAddlDocSuffix;
         }
 
@@ -253,7 +253,7 @@ public class UpdateFromGACaseEventTaskHandler implements BaseExternalTaskHandler
 
     protected boolean canViewResp(CaseData civilCaseData, CaseData generalAppCaseData, String respondent) {
         List<Element<GADetailsRespondentSol>> gaAppDetails;
-        if (respondent.equals("2")) {
+        if ("2".equals(respondent)) {
             gaAppDetails = civilCaseData.getRespondentSolTwoGaAppDetails();
         } else {
             gaAppDetails = civilCaseData.getRespondentSolGaAppDetails();

@@ -772,10 +772,10 @@ public class BundleRequestMapper {
 
     private String getFileNameBaseOnType(String fileNamePrefix, Element<UploadEvidenceDocumentType> uploadEvidence,
                                          String documentType, PartyType party, String index) {
-        if (fileNamePrefix.equals(DOC_FILE_NAME)) {
+        if (DOC_FILE_NAME.equals(fileNamePrefix)) {
             return uploadEvidence.getValue().getDocumentUpload().getDocumentFileName()
                 .substring(0, uploadEvidence.getValue().getDocumentUpload().getDocumentFileName().lastIndexOf("."));
-        } else if (fileNamePrefix.equals(DOC_FILE_NAME_WITH_DATE)) {
+        } else if (DOC_FILE_NAME_WITH_DATE.equals(fileNamePrefix)) {
             return generateDocName(uploadEvidence.getValue().getDocumentUpload().getDocumentFileName()
                                        .substring(0, uploadEvidence.getValue().getDocumentUpload().getDocumentFileName().lastIndexOf(".")) + " %s", null,
                                    null,

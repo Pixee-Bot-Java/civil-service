@@ -44,9 +44,9 @@ public class HearingFeeUtils {
             claimAmount = caseData.getTotalClaimAmount().setScale(2, RoundingMode.UNNECESSARY);
         }
 
-        if (claimTrack.equals("SMALL_CLAIM")) {
+        if ("SMALL_CLAIM".equals(claimTrack)) {
             return hearingFeesService.getFeeForHearingSmallClaims(claimAmount);
-        } else if (claimTrack.equals("FAST_CLAIM")) {
+        } else if ("FAST_CLAIM".equals(claimTrack)) {
             return hearingFeesService.getFeeForHearingFastTrackClaims(claimAmount);
         } else {
             return hearingFeesService.getFeeForHearingMultiClaims(claimAmount);

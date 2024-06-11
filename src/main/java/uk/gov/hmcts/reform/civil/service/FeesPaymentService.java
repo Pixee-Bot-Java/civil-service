@@ -78,7 +78,7 @@ public class FeesPaymentService {
             .paymentFor(feeType.name().toLowerCase())
             .paymentAmount(cardPaymentDetails.getAmount());
 
-        if (paymentStatus.equals("Failed")) {
+        if ("Failed".equals(paymentStatus)) {
             Arrays.asList(cardPaymentDetails.getStatusHistories()).stream()
                 .filter(h -> h.getStatus().equals(paymentStatus))
                 .findFirst()

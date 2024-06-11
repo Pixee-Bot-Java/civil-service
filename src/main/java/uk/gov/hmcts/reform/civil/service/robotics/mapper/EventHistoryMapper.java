@@ -408,7 +408,7 @@ public class EventHistoryMapper {
                 + caseData.getBreathing().getEnter().getReference() + ", ";
         }
 
-        if (bsStatus.equals("Enter")) {
+        if ("Enter".equals(bsStatus)) {
             if (caseData.getBreathing().getEnter().getStart() != null) {
                 if (eventDetails == null) {
                     eventDetails = StringUtils.capitalize(BS_START_DT) + " "
@@ -426,7 +426,7 @@ public class EventHistoryMapper {
                         + LocalDateTime.now();
                 }
             }
-        } else if (bsStatus.equals("Lifted")) {
+        } else if ("Lifted".equals(bsStatus)) {
             if (caseData.getBreathing().getLift().getExpectedEnd() != null) {
                 if (eventDetails == null) {
                     eventDetails = StringUtils.capitalize(BS_END_DATE) + " "

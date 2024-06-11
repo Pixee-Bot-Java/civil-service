@@ -69,7 +69,7 @@ public class DefaultJudgmentDefendantLrCoverLetterHandler extends CallbackHandle
     private void generateCoverLetterDefendantLrLegalOrganisations(CallbackParams callbackParams) {
         CaseData caseData = callbackParams.getCaseData();
         String taskId = camundaActivityId(callbackParams);
-        if (taskId.equals(TASK_ID_DEFENDANT_1)) {
+        if (TASK_ID_DEFENDANT_1.equals(taskId)) {
             defaultJudgmentCoverLetterGenerator.generateAndPrintDjCoverLettersPlusDocument(
                 caseData, callbackParams.getParams().get(BEARER_TOKEN).toString(), false);
         } else {

@@ -164,9 +164,9 @@ public class DirectionsQuestionnaireGenerator implements TemplateDataGeneratorWi
             ? DQ_RESPONSE_1V1_FAST_TRACK_INT : DQ_RESPONSE_1V1;
         DirectionsQuestionnaireForm templateData;
 
-        if (respondent.equals("ONE")) {
+        if ("ONE".equals(respondent)) {
             templateData = getRespondent1TemplateData(caseData, "ONE", authorisation);
-        } else if (respondent.equals("TWO")) {
+        } else if ("TWO".equals(respondent)) {
             templateData = getRespondent2TemplateData(caseData, "TWO", authorisation);
         } else {
             throw new IllegalArgumentException("Respondent argument is expected to be one of ONE or TWO");
@@ -209,7 +209,7 @@ public class DirectionsQuestionnaireGenerator implements TemplateDataGeneratorWi
 
         // Generate DQ based on respondent and template data
         DirectionsQuestionnaireForm templateData;
-        if (respondent.equals("ONE")) {
+        if ("ONE".equals(respondent)) {
             templateData = getRespondent1TemplateData(caseData, "ONE", authorisation);
         } else {
             // TWO
@@ -1003,7 +1003,7 @@ public class DirectionsQuestionnaireGenerator implements TemplateDataGeneratorWi
 
     private Experts getSmallClaimExperts(DQ dq, CaseData caseData, String defendantIdentifier) {
         var experts = dq.getSmallClaimExperts();
-        YesOrNo expertRequired = defendantIdentifier == null || defendantIdentifier.equals("ONE")
+        YesOrNo expertRequired = defendantIdentifier == null || "ONE".equals(defendantIdentifier)
             ? caseData.getResponseClaimExpertSpecRequired()
             : caseData.getResponseClaimExpertSpecRequired2();
         if (isClaimantResponse(caseData)) {

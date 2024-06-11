@@ -77,7 +77,7 @@ public class BundleCreatedNotificationHandler extends CallbackHandler implements
     }
 
     private String getReferenceTemplateString(String taskId) {
-        if (taskId.equals(TASK_ID_APPLICANT)) {
+        if (TASK_ID_APPLICANT.equals(taskId)) {
             return "bundle-created-applicant-notification-%s";
         } else {
             return "bundle-created-respondent-notification-%s";
@@ -86,19 +86,19 @@ public class BundleCreatedNotificationHandler extends CallbackHandler implements
 
     private boolean getIsSameRespondentSolicitor(CaseData caseData, String taskId) {
         boolean isSameRespondentSolicitor = false;
-        if (taskId.equals(TASK_ID_DEFENDANT2) && caseData.getRespondent2SameLegalRepresentative() == YesOrNo.YES) {
+        if (TASK_ID_DEFENDANT2.equals(taskId) && caseData.getRespondent2SameLegalRepresentative() == YesOrNo.YES) {
             isSameRespondentSolicitor = true;
         }
         return isSameRespondentSolicitor;
     }
 
     private String getReceipientEmail(CaseData caseData, String taskId) {
-        if (taskId.equals(TASK_ID_APPLICANT)) {
+        if (TASK_ID_APPLICANT.equals(taskId)) {
             if (isApplicant1Lip(caseData)) {
                 return caseData.getApplicant1().getPartyEmail();
             }
             return caseData.getApplicantSolicitor1UserDetails().getEmail();
-        } else if (taskId.equals(TASK_ID_DEFENDANT1)) {
+        } else if (TASK_ID_DEFENDANT1.equals(taskId)) {
             if (isRespondent1Lip(caseData)) {
                 return caseData.getRespondent1().getPartyEmail();
             }
@@ -138,9 +138,9 @@ public class BundleCreatedNotificationHandler extends CallbackHandler implements
     }
 
     private boolean isLip(CaseData caseData, String taskId) {
-        if (taskId.equals(TASK_ID_APPLICANT)) {
+        if (TASK_ID_APPLICANT.equals(taskId)) {
             return isApplicant1Lip(caseData);
-        } else if (taskId.equals(TASK_ID_DEFENDANT1)) {
+        } else if (TASK_ID_DEFENDANT1.equals(taskId)) {
             return isRespondent1Lip(caseData);
         } else {
             return false;

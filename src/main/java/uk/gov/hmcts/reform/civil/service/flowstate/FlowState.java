@@ -13,7 +13,7 @@ public interface FlowState {
         int lastIndexOfDot = fullName.lastIndexOf('.');
         String flowStateName = fullName.substring(lastIndexOfDot + 1);
         String flowName = fullName.substring(0, lastIndexOfDot);
-        if (flowName.equals("MAIN")) {
+        if ("MAIN".equals(flowName)) {
             return Main.valueOf(flowStateName);
         } else {
             throw new IllegalArgumentException("Invalid flow name:" + flowName);
